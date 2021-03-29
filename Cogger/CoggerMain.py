@@ -16,7 +16,6 @@ if (Action == "0"):
     Number = int(input("How many wheels:"))
     WheelHolders[0].GenarateKey(Number)
     WheelHolders.clear()
-    pause
    
 if (Action == "1"):
     WheelHolders.clear()
@@ -26,7 +25,6 @@ if (Action == "1"):
     Message = input("Enter your encrypted message:")
     WheelHolders[0].EncryptMessageVersion2(Message)
     WheelHolders.clear()
-    pause
 
 if (Action == "2"):
     WheelHolders.clear()
@@ -36,4 +34,3 @@ if (Action == "2"):
     Message = input("Enter your encrypted message:")
     WheelHolders[0].DecryptMessageVersion2(Message)
     WheelHolders.clear()
-    pause

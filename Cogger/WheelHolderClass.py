@@ -79,9 +79,10 @@ class WheelHolder():
         returnValue = Char
         Counter = 0
         for i in self.Wheels:
-            returnValue = self.Wheels[Counter].EncryptChar(returnValue);
+            returnValue = i.EncryptChar(returnValue);
             self.WheelTurnManager();
-            return returnValue
+            Counter = Counter + 1
+        return returnValue
 
     def EncryptMessageVersion2(self, Message):
         FinalOutput = ""
@@ -91,16 +92,17 @@ class WheelHolder():
           FinalOutput = FinalOutput + NewValue
         
         print(FinalOutput)
-        for i in self.Wheels:
-                i.PrintWheelContents()
+        #for i in self.Wheels:
+                #i.PrintWheelContents()
 
     def SingleCharDecryptionVersion2(self, Char):
         returnValue = Char
         Counter = 0
         for i in reversed(self.Wheels):
-            returnValue = self.Wheels[Counter].DecryptChar(returnValue);
+            returnValue = i.DecryptChar(returnValue);
             self.WheelTurnManager();
-            return returnValue
+            Counter = Counter + 1
+        return returnValue
     
     def DecryptMessageVersion2(self, Message):
         FinalOutput = ""
@@ -110,8 +112,8 @@ class WheelHolder():
           FinalOutput = FinalOutput + NewValue
         
         print(FinalOutput)
-        for i in self.Wheels:
-                i.PrintWheelContents()
+        #for i in self.Wheels:
+                #i.PrintWheelContents()
     
     
     
