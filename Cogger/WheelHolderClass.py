@@ -80,7 +80,6 @@ class WheelHolder():
         Counter = 0
         for i in self.Wheels:
             returnValue = i.EncryptChar(returnValue);
-            self.WheelTurnManager();
             Counter = Counter + 1
         return returnValue
 
@@ -89,6 +88,7 @@ class WheelHolder():
         Counter = 0
         for i in Message:
           NewValue = self.SingleCharEncryptionVersion2(i)
+          self.WheelTurnManager();
           FinalOutput = FinalOutput + NewValue
         
         print(FinalOutput)
@@ -100,7 +100,6 @@ class WheelHolder():
         Counter = 0
         for i in reversed(self.Wheels):
             returnValue = i.DecryptChar(returnValue);
-            self.WheelTurnManager();
             Counter = Counter + 1
         return returnValue
     
@@ -109,6 +108,7 @@ class WheelHolder():
         Counter = 0
         for i in Message:
           NewValue = self.SingleCharDecryptionVersion2(i)
+          self.WheelTurnManager();
           FinalOutput = FinalOutput + NewValue
         
         print(FinalOutput)
