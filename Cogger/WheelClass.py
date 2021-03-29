@@ -102,12 +102,17 @@ class Wheel():
         
         self.ImportedWheelKey.clear()
         self.ImportedWheelKey = NewImportedWheelKey.copy()
-        
+
+
+
+    def PrintWheelContents(self):
         for i in self.ImportedWheelKey:
             print("New ID", i);
-    
+        print("Next Wheel")
 
-            
+        
+
+        
         
         
     
