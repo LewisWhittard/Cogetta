@@ -65,10 +65,16 @@ class WheelHolder():
         for i in self.Wheels:
             if (Counter == 0):
                 self.Wheels[Counter].PlusOneToId();
+            
             else:
                 Number = Counter - 1
-                if (self.Wheels[Number].ImportedWheelKey[0] == 0):
+                if (self.Wheels[Number].ImportedWheelKey[0] == 0 and self.Wheels[Number].Used == False):
                     self.Wheels[Counter].PlusOneToId();
+                    self.Wheels[Number].Used = True
+                
+                elif (self.Wheels[Number].ImportedWheelKey[0] == 1):
+                    self.Wheels[Number].Used = False
+                
             Counter = Counter + 1
                 
 
@@ -92,8 +98,8 @@ class WheelHolder():
           FinalOutput = FinalOutput + NewValue
         
         print(FinalOutput)
-        #for i in self.Wheels:
-                #i.PrintWheelContents()
+        for i in self.Wheels:
+                i.PrintWheelContents()
 
     def SingleCharDecryptionVersion2(self, Char):
         returnValue = Char
@@ -112,8 +118,8 @@ class WheelHolder():
           FinalOutput = FinalOutput + NewValue
         
         print(FinalOutput)
-        #for i in self.Wheels:
-                #i.PrintWheelContents()
+        for i in self.Wheels:
+                i.PrintWheelContents()
     
     
     

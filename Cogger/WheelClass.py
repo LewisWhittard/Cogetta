@@ -8,6 +8,7 @@ class Wheel():
         self.ImportedWheelKey = []
         self.GenaratedWheelKey = None
         self.WheelSize = 93
+        self.Used = False
         
     def ImportWheelKey(self,WheelKeyImport):
         self.ImportedWheelKey = WheelKeyImport.split("-")
