@@ -98,8 +98,8 @@ class WheelHolder():
           FinalOutput = FinalOutput + NewValue
         
         print(FinalOutput)
-        for i in self.Wheels:
-                i.PrintWheelContents()
+        #for i in self.Wheels:
+                #i.PrintWheelContents()
 
     def SingleCharDecryptionVersion2(self, Char):
         returnValue = Char
@@ -118,8 +118,8 @@ class WheelHolder():
           FinalOutput = FinalOutput + NewValue
         
         print(FinalOutput)
-        for i in self.Wheels:
-                i.PrintWheelContents()
+        #for i in self.Wheels:
+                #i.PrintWheelContents()
     
     
     
