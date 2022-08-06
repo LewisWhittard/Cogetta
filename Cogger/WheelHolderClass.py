@@ -7,7 +7,7 @@ class WheelHolder():
         KeyList = []
         Key = ""
         for x in range(Number):
-            self.Wheels.append(WheelClass.Wheel());
+            self.Wheels.append(WheelClass.WheelGenarator());
         
         for x in range(Number):
             self.Wheels[x].GenarateWheelKey()
@@ -26,8 +26,10 @@ class WheelHolder():
     def ImportKey(self, ImportedKey):
         Key = ImportedKey
         WheelKeyList = Key.split("+")
+        WheelIdCounter = 0;
         for i in WheelKeyList:
-            self.Wheels.append(WheelClass.Wheel());
+            self.Wheels.append(WheelClass.Wheel(WheelIdCounter));
+            WheelIdCounter = WheelIdCounter + 1;
         
         Counter = 0
         TempWheelList = []

@@ -24,3 +24,12 @@ class EnglishStandard():
         print("Final ID:", maxId)
         print("Input Values Count:", len(inputValues))
         print("Input ID Count:", len(inputId))
+        
+class DemoSet():
+        inputValues = ['A','S','D','F']
+        inputId=[0,1,2,3]
+        maxId = inputId[-1]
+        
+        print("Final ID:", maxId)
+        print("Input Values Count:", len(inputValues))
+        print("Input ID Count:", len(inputId))
