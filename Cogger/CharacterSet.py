@@ -1,4 +1,3 @@
-
 class EnglishStandard():
         inputValues = ['1','2','3','4','5','6','7','8','9','0',
                 'q','w','e','r','t','y','u','i','o','p',
@@ -20,10 +19,8 @@ class EnglishStandard():
                      71,72,73,74,75,76,77,78,79,80,
                      81,82,83,84,85,86,87,88,89,90,
                      91,92,93]
-        counter = 0
-        for i in inputValues:
-            counter = counter + 1
-
-        for i in inputId:
-            counter = counter + 1
-        print(counter)
+        maxId = inputId[-1]
+        
+        print("Final ID:", maxId)
+        print("Input Values Count:", len(inputValues))
+        print("Input ID Count:", len(inputId))

@@ -41,7 +41,6 @@ class WheelHolder():
       for i in Message:
           NewValue = self.Wheels[Counter].EncryptChar(i);
           FinalOutput = FinalOutput + NewValue
-          self.Wheels[Counter].PlusOneToId();
       print(FinalOutput)    
 
     def DecryptMessage(self, Message):
@@ -50,78 +49,7 @@ class WheelHolder():
       for i in Message:
           NewValue = self.Wheels[Counter].DecryptChar(i);
           FinalOutput = FinalOutput + NewValue
-          self.Wheels[Counter].PlusOneToId();
       print(FinalOutput)
-
-    def WheelTurnManager(self):
-        WheelsToTurnList = [True]
-        
-        WheelCount = 0
-
-        for i in self.Wheels:
-            WheelCount = WheelCount + 1
-
-        Counter = 0
-        for i in self.Wheels:
-            if (Counter == 0):
-                self.Wheels[Counter].PlusOneToId();
-            
-            else:
-                Number = Counter - 1
-                if (self.Wheels[Number].ImportedWheelKey[0] == 0 and self.Wheels[Number].Used == False):
-                    self.Wheels[Counter].PlusOneToId();
-                    self.Wheels[Number].Used = True
-                
-                elif (self.Wheels[Number].ImportedWheelKey[0] == 1):
-                    self.Wheels[Number].Used = False
-                
-            Counter = Counter + 1
-                
-
-
-
-
-    def SingleCharEncryptionVersion2(self, Char):
-        returnValue = Char
-        Counter = 0
-        for i in self.Wheels:
-            returnValue = i.EncryptChar(returnValue);
-            Counter = Counter + 1
-        return returnValue
-
-    def EncryptMessageVersion2(self, Message):
-        FinalOutput = ""
-        Counter = 0
-        for i in Message:
-          NewValue = self.SingleCharEncryptionVersion2(i)
-          self.WheelTurnManager();
-          FinalOutput = FinalOutput + NewValue
-        
-        print(FinalOutput)
-        #for i in self.Wheels:
-                #i.PrintWheelContents()
-
-    def SingleCharDecryptionVersion2(self, Char):
-        returnValue = Char
-        Counter = 0
-        for i in reversed(self.Wheels):
-            returnValue = i.DecryptChar(returnValue);
-            Counter = Counter + 1
-        return returnValue
-    
-    def DecryptMessageVersion2(self, Message):
-        FinalOutput = ""
-        Counter = 0
-        for i in Message:
-          NewValue = self.SingleCharDecryptionVersion2(i)
-          self.WheelTurnManager();
-          FinalOutput = FinalOutput + NewValue
-        
-        print(FinalOutput)
-        #for i in self.Wheels:
-                #i.PrintWheelContents()
-    
-    
     
         
 

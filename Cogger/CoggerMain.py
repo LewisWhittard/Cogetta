@@ -23,7 +23,7 @@ if (Action == "1"):
     Key = input("What is your key:")
     WheelHolders[0].ImportKey(Key)
     Message = input("Enter your encrypted message:")
-    WheelHolders[0].EncryptMessageVersion2(Message)
+    WheelHolders[0].EncryptMessage(Message)
     WheelHolders.clear()
 
 if (Action == "2"):
@@ -32,5 +32,5 @@ if (Action == "2"):
     Key = input("What is your key:")
     WheelHolders[0].ImportKey(Key)
     Message = input("Enter your encrypted message:")
-    WheelHolders[0].DecryptMessageVersion2(Message)
+    WheelHolders[0].DecryptMessage(Message)
     WheelHolders.clear()

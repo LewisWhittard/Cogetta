@@ -7,16 +7,12 @@ class Wheel():
         self.CharacterSetClass = CharacterSet.EnglishStandard()
         self.ImportedWheelKey = []
         self.GenaratedWheelKey = None
-        self.WheelSize = 93
-        self.Used = False
+        self.WheelSize = self.CharacterSetClass.maxId
         
     def ImportWheelKey(self,WheelKeyImport):
         self.ImportedWheelKey = WheelKeyImport.split("-")
         self.ImportedWheelKey = list((map(int, self.ImportedWheelKey)))
         
-
-        
-    
     def GenarateWheelKey(self):
         WheelKey = ""
         Counter = 0
@@ -47,14 +43,12 @@ class Wheel():
                 break
             else:
                 Counter = Counter + 1
-        print(Result)
         return Result
         
     def GetRandomId(self, data):        
         Result = None
         for x in range(data + 1):
             Result = self.ImportedWheelKey[x]
-        print(Result)
         return Result
 
    
@@ -68,7 +62,6 @@ class Wheel():
                 break
             else:
                 Counter = Counter + 1
-        print(Result)
         return Result
     
     def DecryptChar(self, originalData):
@@ -87,29 +80,7 @@ class Wheel():
                 break
             else:
                 Counter = Counter + 1
-        print(Result)
         return Result
-    
-    def PlusOneToId(self):
-        NewImportedWheelKey = []
-        for i in self.ImportedWheelKey:
-            LoopInt = i
-            if (LoopInt == self.WheelSize):
-                NewImportedWheelKey.append(0);
-        
-            else:
-                ElseInt = i + 1
-                NewImportedWheelKey.append(ElseInt);
-        
-        self.ImportedWheelKey.clear()
-        self.ImportedWheelKey = NewImportedWheelKey.copy()
-
-
-
-    def PrintWheelContents(self):
-        for i in self.ImportedWheelKey:
-            print("New ID", i);
-        print("Next Wheel")
 
         
 
