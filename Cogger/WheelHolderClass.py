@@ -38,20 +38,22 @@ class WheelHolder():
             Counter = Counter + 1
             
     def EncryptMessage(self, Message):
-      FinalOutput = ""
-      Counter = 0
-      for i in Message:
-          NewValue = self.Wheels[Counter].EncryptChar(i);
-          FinalOutput = FinalOutput + NewValue
-      print(FinalOutput)    
+        FinalOutput = ""
+        for i in Message:
+            NewValue = i
+            for x in self.Wheels:
+                NewValue = x.EncryptChar(NewValue);
+            FinalOutput = FinalOutput + NewValue
+        print(FinalOutput)    
 
     def DecryptMessage(self, Message):
-      FinalOutput = ""
-      Counter = 0
-      for i in Message:
-          NewValue = self.Wheels[Counter].DecryptChar(i);
-          FinalOutput = FinalOutput + NewValue
-      print(FinalOutput)
+        FinalOutput = ""
+        for i in Message:
+            NewValue = i
+            for x in reversed(self.Wheels):
+                NewValue = x.DecryptChar(i);
+            FinalOutput = FinalOutput + NewValue
+        print(FinalOutput)
     
         
 
