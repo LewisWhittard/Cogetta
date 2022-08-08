@@ -51,7 +51,7 @@ class WheelHolder():
         for i in Message:
             NewValue = i
             for x in reversed(self.Wheels):
-                NewValue = x.DecryptChar(i);
+                NewValue = x.DecryptChar(NewValue);
             FinalOutput = FinalOutput + NewValue
         print(FinalOutput)
     
