@@ -5,7 +5,7 @@ import string
 class WheelGenarator():
     
     def __init__(self):
-        self.CharacterSetClass = CharacterSet.DemoSet()
+        self.CharacterSetClass = CharacterSet.EnglishStandard()
         self.GenaratedWheelKey = None
         self.WheelSize = self.CharacterSetClass.maxId
         
@@ -28,7 +28,7 @@ class Wheel():
     
     
     def __init__(self,wheelID):
-        self.CharacterSetClass = CharacterSet.DemoSet()
+        self.CharacterSetClass = CharacterSet.EnglishStandard()
         self.ImportedWheelKey = []
         self.GenaratedWheelKey = None
         self.WheelId = wheelID
@@ -54,6 +54,7 @@ class Wheel():
         ResultPart1 = self.GetRandomId(ResultPart0)
         ResultPart2 = self.GetFinalChar(ResultPart1)
         self.Turn()
+        print("Wheel Used",self.WheelId)
         return ResultPart2
     
     def GetCharId(self, data):
