@@ -1,0 +1,41 @@
+import WheelHolderClass
+import Validation
+
+WheelHolders = []
+StringValidation = Validation.StringValidation()
+
+
+print("0: Genarate a key");
+print("1: Encrypt");
+print("2: Decrypt");
+print("3: Quit");
+
+Action = input("Please enter a Number:")
+
+if (Action == "0"):
+    WheelHolders.clear()
+    WheelHolders.append(WheelHolderClass.WheelHolder());
+    Number = int(input("How many wheels:"))
+    WheelHolders[0].GenarateKey(Number)
+    WheelHolders.clear()
+   
+if (Action == "1"):
+    WheelHolders.clear()
+    WheelHolders.append(WheelHolderClass.WheelHolder());
+    Key = input("What is your key:")
+    WheelHolders[0].ImportKey(Key)
+    Valid = False
+    while Valid == False:
+        Message = input("Enter your encrypted message:")
+        Valid = StringValidation.CheckString(Message)
+    WheelHolders[0].EncryptMessage(Message)
+    WheelHolders.clear()
+
+if (Action == "2"):
+    WheelHolders.clear()
+    WheelHolders.append(WheelHolderClass.WheelHolder());
+    Key = input("What is your key:")
+    WheelHolders[0].ImportKey(Key)
+    Message = input("Enter your encrypted message:")
+    WheelHolders[0].DecryptMessage(Message)
+    WheelHolders.clear()
