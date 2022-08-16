@@ -1,6 +1,8 @@
 import WheelHolderClass
+import Validation
 
 WheelHolders = []
+StringValidation = Validation.StringValidation()
 
 
 print("0: Genarate a key");
@@ -22,7 +24,10 @@ if (Action == "1"):
     WheelHolders.append(WheelHolderClass.WheelHolder());
     Key = input("What is your key:")
     WheelHolders[0].ImportKey(Key)
-    Message = input("Enter your encrypted message:")
+    Valid = False
+    while Valid == False:
+        Message = input("Enter your encrypted message:")
+        Valid = StringValidation.CheckString(Message)
     WheelHolders[0].EncryptMessage(Message)
     WheelHolders.clear()
 
