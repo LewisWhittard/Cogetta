@@ -26,9 +26,7 @@ if (Action == "1"):
     WheelHolders.append(WheelHolderClass.WheelHolder());
     WheelHolders[0].ImportKey(Key)
     StringValid = False
-    while StringValid == False:
-        Message = input("Enter your encrypted message:")
-        StringValid = StringValidation.CheckString(Message)
+    Message = StringValidation.ValidationManager()
     WheelHolders[0].EncryptMessage(Message)
     WheelHolders.clear()
 
@@ -37,6 +35,6 @@ if (Action == "2"):
     WheelHolders.append(WheelHolderClass.WheelHolder());
     Key = KeyValidation.ValidationManager()
     WheelHolders[0].ImportKey(Key)
-    Message = input("Enter your encrypted message:")
+    Message = StringValidation.ValidationManager()
     WheelHolders[0].DecryptMessage(Message)
     WheelHolders.clear()

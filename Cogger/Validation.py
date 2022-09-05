@@ -33,6 +33,30 @@ class StringValidation():
             
         return Valid
     
+    def ReturnMessageTryCatch(self):
+        Message = None
+        NotMaxString = False
+        while NotMaxString == False:
+            try:
+                Message = input("What is your message:")
+                NotMaxString = True
+            except:
+                print("Message Try Catch Error")
+        
+        return Message
+    
+    def ValidationManager(self):
+        Message = None
+        StringValid = False
+        while StringValid == False:
+            Message  = self.ReturnMessageTryCatch()
+            StringValid = self.CheckString(Message)
+        return Message
+            
+        
+        
+    
+    
 class KeyValidation():
     
     def __init__(self):
@@ -48,7 +72,7 @@ class KeyValidation():
                 Key = input("What is your key:")
                 NotMaxString = True
             except:
-                print("Key Error")
+                print("Key Try CatchError")
         
         return Key
         
