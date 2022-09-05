@@ -38,6 +38,19 @@ class KeyValidation():
         self.CharacterSetClass = CharacterSet.EnglishStandard()
         self.List = self.KeySetClass.inputValues
         
+    def ReturnKeyTryCatch(self):
+        Key = None
+        NotMaxString = False
+        while NotMaxString == False:
+            try:
+                Key = input("What is your key:")
+                NotMaxString = True
+            except:
+                print("Key Error")
+        
+        return Key
+        
+    
     def CheckString(self,Message):
         Valid = True
         MessageLength = len(Message)

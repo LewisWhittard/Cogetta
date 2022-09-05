@@ -25,14 +25,8 @@ if (Action == "1"):
     KeyValidChar = False
     KeyValidLength = False
     DashNotStartOrEnd = False
-    NotMaxString = False
-    while NotMaxString == False or DashNotStartOrEnd == False or KeyValidChar == False or KeyValidLength == False or KeyValidUniqueChars == False:
-        try:
-            Key = input("What is your key:")
-            NotMaxString = True
-        except:
-            print("Key Error")
-        if NotMaxString == True:
+    while DashNotStartOrEnd == False or KeyValidChar == False or KeyValidLength == False or KeyValidUniqueChars == False:
+            Key = KeyValidation.ReturnKeyTryCatch()
             KeyValidChar = KeyValidation.CheckString(Key)
             print("Char Pass",KeyValidChar)
             if KeyValidChar == True:
