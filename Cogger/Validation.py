@@ -1,10 +1,12 @@
 import CharacterSet
+import WheelHolderClass
 
 class StringValidation():
     
     def __init__(self):
         self.CharacterSetClass = CharacterSet.EnglishStandard()
         self.List = self.CharacterSetClass.inputValues
+        self.WheelHolders = []
         
     def CheckString(self,Message):
         Valid = True
@@ -145,6 +147,28 @@ class KeyValidation():
         if string[-1] == "-":
             value = False
         return value
+    
+    def ValidationManager(self):
+        KeyValidChar = False
+        KeyValidLength = False
+        DashNotStartOrEnd = False
+        WheelHolders = []
+        while DashNotStartOrEnd == False or KeyValidChar == False or KeyValidLength == False or KeyValidUniqueChars == False:
+            Key = self.ReturnKeyTryCatch()
+            KeyValidChar = self.CheckString(Key)
+            print("Char Pass",KeyValidChar)
+            if KeyValidChar == True:
+                DashNotStartOrEnd = self.CheckBackAndFrontOfStringNotDash(Key)
+                if DashNotStartOrEnd == True:
+                    WheelHolders.append(WheelHolderClass.WheelHolder());
+                    WheelHolders[0].ImportKey(Key)
+                    KeyValidLength = self.CheckKeyLength(WheelHolders[0])
+                    print("KeyValidLength", KeyValidLength)
+                    if KeyValidLength == True:
+                        KeyValidUniqueChars = self.CheckKeyValuesAreUnique(WheelHolders[0])
+                        print("KeyValidUniqueChars", KeyValidUniqueChars)
+            WheelHolders.clear()
+        return Key        
             
             
         

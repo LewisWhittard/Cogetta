@@ -22,27 +22,7 @@ if (Action == "0"):
    
 if (Action == "1"):
     WheelHolders.clear()
-    KeyValidChar = False
-    KeyValidLength = False
-    DashNotStartOrEnd = False
-    while DashNotStartOrEnd == False or KeyValidChar == False or KeyValidLength == False or KeyValidUniqueChars == False:
-            Key = KeyValidation.ReturnKeyTryCatch()
-            KeyValidChar = KeyValidation.CheckString(Key)
-            print("Char Pass",KeyValidChar)
-            if KeyValidChar == True:
-                DashNotStartOrEnd = KeyValidation.CheckBackAndFrontOfStringNotDash(Key)
-                if DashNotStartOrEnd == True:
-                    WheelHolders.append(WheelHolderClass.WheelHolder());
-                    WheelHolders[0].ImportKey(Key)
-                    KeyValidLength = KeyValidation.CheckKeyLength(WheelHolders[0])
-                    WheelHolders.clear()
-                    print("KeyValidLength", KeyValidLength)
-                    if KeyValidLength == True:
-                        WheelHolders.append(WheelHolderClass.WheelHolder());
-                        WheelHolders[0].ImportKey(Key)
-                        KeyValidUniqueChars = KeyValidation.CheckKeyValuesAreUnique(WheelHolders[0])
-                        print("KeyValidUniqueChars", KeyValidUniqueChars)
-                        WheelHolders.clear()
+    Key = KeyValidation.ValidationManager()
     WheelHolders.append(WheelHolderClass.WheelHolder());
     WheelHolders[0].ImportKey(Key)
     StringValid = False
@@ -55,7 +35,7 @@ if (Action == "1"):
 if (Action == "2"):
     WheelHolders.clear()
     WheelHolders.append(WheelHolderClass.WheelHolder());
-    Key = input("What is your key:")
+    Key = KeyValidation.ValidationManager()
     WheelHolders[0].ImportKey(Key)
     Message = input("Enter your encrypted message:")
     WheelHolders[0].DecryptMessage(Message)
