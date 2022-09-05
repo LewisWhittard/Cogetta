@@ -1,7 +1,10 @@
 import WheelClass
 
 class WheelHolder():
-    Wheels = []
+    
+    
+    def __init__(self):
+        self.Wheels = []
     
     def GenarateKey(self, Number): 
         KeyList = []

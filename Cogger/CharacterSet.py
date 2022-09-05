@@ -20,6 +20,7 @@ class EnglishStandard():
                      81,82,83,84,85,86,87,88,89,90,
                      91,92,93]
         maxId = inputId[-1]
+        count = len(inputId)
         
         print("Final ID:", maxId)
         print("Input Values Count:", len(inputValues))
@@ -33,3 +34,7 @@ class DemoSet():
         print("Final ID:", maxId)
         print("Input Values Count:", len(inputValues))
         print("Input ID Count:", len(inputId))
+        
+class KeySet():
+    inputValues = ['1','2','3','4','5','6','7','8','9','0',
+                '+','-']
