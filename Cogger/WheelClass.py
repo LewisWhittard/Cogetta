@@ -20,7 +20,6 @@ class WheelGenarator():
             else:
                 WheelKey = WheelKey + str(i) + "-"
             Counter = Counter + 1
-        print (WheelKey)
         self.GenaratedWheelKey = WheelKey
 
 class Wheel():

@@ -19,10 +19,8 @@ class WheelHolder():
         for i in self.Wheels:
             if Counter == Number - 1:
                 Key = Key + str(i.GenaratedWheelKey)
-                print(i);
             else:
                 Key = Key + str(i.GenaratedWheelKey) + "+"
-                print(i);
             Counter = Counter + 1
         print(Key);
         
