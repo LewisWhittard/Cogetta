@@ -119,7 +119,6 @@ class KeyValidation():
         
         if valueCount == self.CharacterSetClass.count:
             valid = True
-            print("Valid")
         else:
             valid = False
             print("Invalid Key", valueCount, self.CharacterSetClass.count)
@@ -136,7 +135,8 @@ class KeyValidation():
     def CheckWheelValuesAreUnique(self,Wheel):
         valid = True
         valid = len(Wheel.ImportedWheelKey) == len(set(Wheel.ImportedWheelKey))
-        print(valid)
+        if valid == False:
+            print("Invalid Wheel Key values are not unique")
         return valid
         
     def CheckBackAndFrontOfStringNotDash(self, key):
