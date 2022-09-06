@@ -50,7 +50,6 @@ class Wheel():
         ResultPart1 = self.GetRandomId(ResultPart0)
         ResultPart2 = self.GetFinalChar(ResultPart1)
         self.Turn()
-        print("Wheel Used",self.WheelId)
         return ResultPart2
     
     def GetCharId(self, data):
@@ -88,7 +87,6 @@ class Wheel():
             self.ImportedWheelKey.clear()
             self.ImportedWheelKey = NewImportedWheelKey.copy()
             self.InternalCount = 0
-            print("Turn",self.WheelId)
     
             
     
