@@ -41,7 +41,7 @@ class StringValidation():
                 Message = input("What is your message:")
                 NotMaxString = True
             except:
-                print("Message Try Catch Error")
+                print("Message Error")
         
         return Message
     
@@ -72,7 +72,7 @@ class KeyValidation():
                 Key = input("What is your key:")
                 NotMaxString = True
             except:
-                print("Key Try CatchError")
+                print("Key Error")
         
         return Key
         
@@ -192,7 +192,21 @@ class KeyValidation():
                         KeyValidUniqueChars = self.CheckKeyValuesAreUnique(WheelHolders[0])
                         print("KeyValidUniqueChars", KeyValidUniqueChars)
             WheelHolders.clear()
-        return Key        
+        return Key
+    
+class NumberValidation():
+    
+    def ReturnKeyTryCatch(self):
+        Key = None
+        NotMaxString = False
+        while NotMaxString == False:
+            try:
+                Number = int(input("How many wheels:"))
+                NotMaxString = True
+            except:
+                print("Number Error")
+        
+        return Number
             
             
         

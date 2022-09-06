@@ -4,6 +4,7 @@ import Validation
 WheelHolders = []
 StringValidation = Validation.StringValidation()
 KeyValidation = Validation.KeyValidation()
+NumberValidation = Validation.NumberValidation()
 
 
 print("0: Genarate a key");
@@ -16,7 +17,7 @@ Action = input("Please enter a Number:")
 if (Action == "0"):
     WheelHolders.clear()
     WheelHolders.append(WheelHolderClass.WheelHolder());
-    Number = int(input("How many wheels:"))
+    Number = NumberValidation.ReturnKeyTryCatch()
     WheelHolders[0].GenarateKey(Number)
     WheelHolders.clear()
    
