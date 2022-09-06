@@ -38,9 +38,6 @@ class Wheel():
             self.TurnValue = 1
         else:
             self.TurnValue = ((self.WheelSize + 1) ** self.WheelId)
-            print("Test",self.WheelId, self.WheelSize, self.TurnValue)
-            
-        print(self.TurnValue)
         
     
         
