@@ -22,7 +22,7 @@ while ProgramActive == True:
         WheelHolders[0].GenarateKey(Number)
         WheelHolders.clear()
    
-    if (Action == "1"):
+    elif (Action == "1"):
         WheelHolders.clear()
         Key = KeyValidation.ValidationManager()
         WheelHolders.append(WheelHolderClass.WheelHolder())
@@ -32,7 +32,7 @@ while ProgramActive == True:
         WheelHolders[0].EncryptMessage(Message)
         WheelHolders.clear()
 
-    if (Action == "2"):
+    elif (Action == "2"):
         WheelHolders.clear()
         WheelHolders.append(WheelHolderClass.WheelHolder())
         Key = KeyValidation.ValidationManager()
@@ -41,9 +41,9 @@ while ProgramActive == True:
         WheelHolders[0].DecryptMessage(Message)
         WheelHolders.clear()
     
-    if (Action == "3"):
+    elif (Action == "3"):
         ProgramActive = False
     
     elif():
-        print("Incorrect Value")
+        print("Incorrect value please refer to the list of commands")
     
