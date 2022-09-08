@@ -44,6 +44,6 @@ while ProgramActive == True:
     elif (Action == "3"):
         ProgramActive = False
     
-    elif():
+    elif(Action != "0" or Action != "1" or Action != "2"or Action != "3"):
         print("Incorrect value please refer to the list of commands")
     
