@@ -149,14 +149,18 @@ class KeyValidation():
                 Valid = self.CheckBackAndFrontOfStringNotDashSingle(x)
         return Valid
     
-    def CheckBackAndFrontOfStringNotDashSingle(self, string):
+    def CheckBackAndFrontOfString(self, string):
         result = True;
-        back = self.CheckBackOfStringIsNotDash(string)
-        front = self.CheckFrontOfStringIsNotDash(string)
-        if back == False or front == False:
+        notBackDash = self.CheckBackOfStringIsNotDash(string)
+        notFrontDash = self.CheckFrontOfStringIsNotDash(string)
+        notBackPlus = self.CheckBackOfStringIsNotPlus(string)
+        notFrontPlus = self.CheckFrontOfStringIsNotPlus(string)
+        if notBackDash == False or notFrontDash == False or notBackPlus == False or notFrontPlus == False:
             result = False
-            print(back)
-            print(front)
+            print(notBackDash)
+            print(notFrontDash)
+            print(notBackPlus)
+            print(notFrontPlus)
         return result
         
     def CheckBackOfStringIsNotDash(self, string):
@@ -171,6 +175,18 @@ class KeyValidation():
         if string[-1] == "-":
             value = False
         return value
+    def CheckBackOfStringIsNotPlus(self, string):
+        value = True;
+        if string[0] == "+":
+            value = False
+        return value
+        
+    
+    def CheckFrontOfStringIsNotPlus(self, string):
+        value = True;
+        if string[-1] == "+":
+            value = False
+        return value
     
     def ValidationManager(self):
         KeyValidChar = False
@@ -181,8 +197,8 @@ class KeyValidation():
             Key = self.ReturnKeyTryCatch()
             KeyValidChar = self.CheckString(Key)
             if KeyValidChar == True:
-                DashNotStartOrEnd = self.CheckBackAndFrontOfStringNotDash(Key)
-                if DashNotStartOrEnd == True:
+                StartOrEndCheck = self.CheckBackAndFrontOfString(Key)
+                if StartOrEndCheck == True:
                     WheelHolders.append(WheelHolderClass.WheelHolder());
                     WheelHolders[0].ImportKey(Key)
                     KeyValidLength = self.CheckKeyLength(WheelHolders[0])
