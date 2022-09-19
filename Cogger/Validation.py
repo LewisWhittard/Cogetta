@@ -191,9 +191,9 @@ class KeyValidation():
     def ValidationManager(self):
         KeyValidChar = False
         KeyValidLength = False
-        DashNotStartOrEnd = False
+        StartOrEndCheck = False
         WheelHolders = []
-        while DashNotStartOrEnd == False or KeyValidChar == False or KeyValidLength == False or KeyValidUniqueChars == False:
+        while StartOrEndCheck == False or KeyValidChar == False or KeyValidLength == False or KeyValidUniqueChars == False:
             Key = self.ReturnKeyTryCatch()
             KeyValidChar = self.CheckString(Key)
             if KeyValidChar == True:
