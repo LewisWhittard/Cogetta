@@ -139,14 +139,14 @@ class KeyValidation():
             print("Invalid Wheel Key values are not unique")
         return valid
         
-    def CheckBackAndFrontOfStringNotDash(self, key):
+    def CheckBackAndFrontOfStringAllWheels(self, key):
         Valid = True;
         
         KeyList = key.split("+")
         
         for x in KeyList:
             if Valid == True:
-                Valid = self.CheckBackAndFrontOfStringNotDashSingle(x)
+                Valid = self.CheckBackAndFrontOfString(x)
         return Valid
     
     def CheckBackAndFrontOfString(self, string):
@@ -155,6 +155,8 @@ class KeyValidation():
         notFrontDash = self.CheckFrontOfStringIsNotDash(string)
         notBackPlus = self.CheckBackOfStringIsNotPlus(string)
         notFrontPlus = self.CheckFrontOfStringIsNotPlus(string)
+        print(notFrontDash)
+        
         if notBackDash == False or notFrontDash == False or notBackPlus == False or notFrontPlus == False:
             result = False
             print("Check start and end of each wheel key")
@@ -194,7 +196,7 @@ class KeyValidation():
             Key = self.ReturnKeyTryCatch()
             KeyValidChar = self.CheckString(Key)
             if KeyValidChar == True:
-                StartOrEndCheck = self.CheckBackAndFrontOfString(Key)
+                StartOrEndCheck = self.CheckBackAndFrontOfStringAllWheels(Key)
                 if StartOrEndCheck == True:
                     WheelHolders.append(WheelHolderClass.WheelHolder());
                     WheelHolders[0].ImportKey(Key)
