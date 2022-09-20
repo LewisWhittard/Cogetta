@@ -155,7 +155,6 @@ class KeyValidation():
         notFrontDash = self.CheckFrontOfStringIsNotDash(string)
         notBackPlus = self.CheckBackOfStringIsNotPlus(string)
         notFrontPlus = self.CheckFrontOfStringIsNotPlus(string)
-        print(notFrontDash)
         
         if notBackDash == False or notFrontDash == False or notBackPlus == False or notFrontPlus == False:
             result = False
