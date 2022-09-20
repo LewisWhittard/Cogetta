@@ -157,10 +157,7 @@ class KeyValidation():
         notFrontPlus = self.CheckFrontOfStringIsNotPlus(string)
         if notBackDash == False or notFrontDash == False or notBackPlus == False or notFrontPlus == False:
             result = False
-            print(notBackDash)
-            print(notFrontDash)
-            print(notBackPlus)
-            print(notFrontPlus)
+            print("Check start and end of each wheel key")
         return result
         
     def CheckBackOfStringIsNotDash(self, string):
