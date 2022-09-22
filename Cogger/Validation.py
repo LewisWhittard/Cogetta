@@ -163,26 +163,26 @@ class KeyValidation():
         
     def CheckBackOfStringIsNotDash(self, string):
         value = True;
-        if string[0] == "-":
+        if len(string) == 0 or string[0] == "-":
             value = False
         return value
         
     
     def CheckFrontOfStringIsNotDash(self, string):
         value = True;
-        if string[-1] == "-":
+        if len(string) == 0 or string[-1] == "-":
             value = False
         return value
     def CheckBackOfStringIsNotPlus(self, string):
         value = True;
-        if string[0] == "+":
+        if len(string) == 0 or string[0] == "+":
             value = False
         return value
         
     
     def CheckFrontOfStringIsNotPlus(self, string):
         value = True;
-        if string[-1] == "+":
+        if len(string) == 0 or string[-1] == "+":
             value = False
         return value
     
