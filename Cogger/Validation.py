@@ -163,38 +163,60 @@ class KeyValidation():
         
     def CheckBackOfStringIsNotDash(self, string):
         value = True;
-        if len(string) == 0 or string[0] == "-":
+        if string[0] == "-":
             value = False
         return value
         
     
     def CheckFrontOfStringIsNotDash(self, string):
         value = True;
-        if len(string) == 0 or string[-1] == "-":
+        if string[-1] == "-":
             value = False
         return value
     def CheckBackOfStringIsNotPlus(self, string):
         value = True;
-        if len(string) == 0 or string[0] == "+":
+        if string[0] == "+":
             value = False
         return value
         
     
     def CheckFrontOfStringIsNotPlus(self, string):
         value = True;
-        if len(string) == 0 or string[-1] == "+":
+        if string[-1] == "+":
             value = False
+        return value
+    
+    def CheckNotForInvalidCombonations(self, string):
+        value = True
+        
+        if "--" in string:
+            value = False
+        
+        elif "+-" in string:
+            value = False
+            
+        elif "-+" in string:
+            value = False
+            
+        elif "++" in string:
+            value = False
+            
+        if value == False:
+            print("Invalid Combonation")
+        
         return value
     
     def ValidationManager(self):
         KeyValidChar = False
         KeyValidLength = False
         StartOrEndCheck = False
+        InvalidCombonation = False
         WheelHolders = []
-        while StartOrEndCheck == False or KeyValidChar == False or KeyValidLength == False or KeyValidUniqueChars == False:
+        while StartOrEndCheck == False or KeyValidChar == False or KeyValidLength == False or KeyValidUniqueChars == False or InvalidCombonation == False:
             Key = self.ReturnKeyTryCatch()
+            InvalidCombonation = self.CheckNotForInvalidCombonations(Key)
             KeyValidChar = self.CheckString(Key)
-            if KeyValidChar == True:
+            if KeyValidChar == True and InvalidCombonation == True:
                 StartOrEndCheck = self.CheckBackAndFrontOfStringAllWheels(Key)
                 if StartOrEndCheck == True:
                     WheelHolders.append(WheelHolderClass.WheelHolder());
