@@ -85,7 +85,7 @@ class KeyValidation():
         
         if MessageLength <= 0:
             Valid = False
-            print("No Key")
+            print("No key")
             
         for x in Message:
             if Valid == True:
@@ -123,7 +123,7 @@ class KeyValidation():
             valid = True
         else:
             valid = False
-            print("Invalid Key", valueCount, self.CharacterSetClass.count)
+            print("Invalid key", valueCount, self.CharacterSetClass.count)
         
         return valid
     
@@ -138,7 +138,7 @@ class KeyValidation():
         valid = True
         valid = len(Wheel.ImportedWheelKey) == len(set(Wheel.ImportedWheelKey))
         if valid == False:
-            print("Invalid Wheel Key values are not unique")
+            print("Invalid wheel key values are not unique")
         return valid
         
     def CheckBackAndFrontOfStringAllWheels(self, key):
@@ -204,7 +204,7 @@ class KeyValidation():
             value = False
             
         if value == False:
-            print("Invalid Combonation")
+            print("Invalid combination")
         
         return value
     
@@ -236,7 +236,7 @@ class KeyValidation():
         for i in Wheel.ImportedWheelKey:
             if i < self.MinimumValue:
                 Value = False
-                print("Value is too Small", i)
+                print("Value is too small", i)
         return Value
     
     def CheckMaximumAndMinimumValues(self, WheelHolder):
