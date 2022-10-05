@@ -16,6 +16,7 @@ class EnglishStandard():
             Counter = Counter + 1
         maxId = inputId[-1]
         count = len(inputId)
+        minId = inputId[0]
         
         
         
