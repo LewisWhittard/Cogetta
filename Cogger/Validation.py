@@ -153,10 +153,15 @@ class KeyValidation():
     
     def CheckBackAndFrontOfString(self, string):
         result = True;
-        notBackDash = self.CheckBackOfStringIsNotDash(string)
-        notFrontDash = self.CheckFrontOfStringIsNotDash(string)
-        notBackPlus = self.CheckBackOfStringIsNotPlus(string)
         notFrontPlus = self.CheckFrontOfStringIsNotPlus(string)
+        if notFrontPlus == True:
+            notBackDash = self.CheckBackOfStringIsNotDash(string)
+            notFrontDash = self.CheckFrontOfStringIsNotDash(string)
+            notBackPlus = self.CheckBackOfStringIsNotPlus(string)
+        else:
+            notBackDash = False
+            notFrontDash = False
+            notBackPlus = False
         
         if notBackDash == False or notFrontDash == False or notBackPlus == False or notFrontPlus == False:
             result = False
@@ -184,7 +189,10 @@ class KeyValidation():
     
     def CheckFrontOfStringIsNotPlus(self, string):
         value = True;
-        if string[0] == "+":
+        try:
+            if string[0] == "+":
+                value = False
+        except:
             value = False
         return value
     
