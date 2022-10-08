@@ -189,10 +189,8 @@ class KeyValidation():
     
     def CheckFrontOfStringIsNotPlus(self, string):
         value = True;
-        try:
-            if string[0] == "+":
-                value = False
-        except:
+        
+        if string == "" or string[0] == "+":
             value = False
         return value
     
