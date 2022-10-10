@@ -6,7 +6,7 @@ StringValidation = Validation.StringValidation()
 KeyValidation = Validation.KeyValidation()
 NumberValidation = Validation.NumberValidation()
 
-print("Cogger • © Lewis Whittard 2022 • MIT License")
+print("Cogger • © Lewis Whittard 2022 • MIT License • Version: 1.0.0")
 
 ProgramActive = True
 
