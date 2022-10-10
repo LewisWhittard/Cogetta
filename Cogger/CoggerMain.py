@@ -5,6 +5,9 @@ WheelHolders = []
 StringValidation = Validation.StringValidation()
 KeyValidation = Validation.KeyValidation()
 NumberValidation = Validation.NumberValidation()
+
+print("Cogger • © Lewis Whittard 2022 • MIT License")
+
 ProgramActive = True
 
 while ProgramActive == True:
