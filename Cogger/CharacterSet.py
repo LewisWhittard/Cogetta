@@ -1,6 +1,6 @@
 class EnglishStandard():
         
-        versionId = "Test Set"
+        versionId = 100
         
         if (versionId == "Test Set"): 
             inputValues = ['A','S','D','F']       
