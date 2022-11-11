@@ -218,7 +218,8 @@ class KeyValidation():
         Value = True
         
         for i in WheelHolder.Wheels:
-            Value = self.CheckValueIsNotLargerThenMaxValue(i)
+            if Value == True:
+                Value = self.CheckValueIsNotLargerThenMaxValue(i)
         
         return Value
     
@@ -233,7 +234,8 @@ class KeyValidation():
     def CheckValueIsNotSmallerThenMinimumValueAllWheels(self,WheelHolder):
         Value = True
         for i in WheelHolder.Wheels:
-            Value = self.CheckValueIsNotSmallerThenMinimumValue(i)
+            if Value == True:
+                Value = self.CheckValueIsNotSmallerThenMinimumValue(i)
         
         return Value
     
