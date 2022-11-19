@@ -1,8 +1,8 @@
 class Column():
     def __init__(self, iD):
-        ID = iD
-        ListOfLetters = []
-        FinalString = None
+        self.ID = iD
+        self.ListOfLetters = []
+        self.FinalString = None
         
     def AddLetter(Letter):
         ListOfLetters.append(Letter)

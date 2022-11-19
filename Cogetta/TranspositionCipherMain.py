@@ -1,6 +1,7 @@
-import WheelHolderClass
+import TranspositionCipherTable
 import Validation
 
+Table = TranspositionCipherTable.Table(0)
 StringValidation = Validation.StringValidation()
 KeyValidation = Validation.KeyValidation()
 NumberValidation = Validation.NumberValidation()
@@ -18,12 +19,7 @@ while ProgramActive == True:
     Action = input("Please enter a Number:")
 
     if (Action == "0"):
-        
-   
-    elif (Action == "1"):
-        
-
-    elif (Action == "2"):
+        Table.GenarateKey()
         
     
     elif (Action == "3"):
