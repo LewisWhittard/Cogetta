@@ -11,3 +11,15 @@ class Column():
         for i in self.ListOfLetters:
             StringToReturn = StringToReturn + i
         return StringToReturn
+
+class ColumnStructure():
+    def _init_(self, iD):
+        self.ID = iD
+        self.KeyId = None
+        self.MessageCount = None
+        
+    def ImportMessageCount(self,Count)
+        self.MessageCount = Count
+    
+    def ImportKeyId(self, iD):
+        self.KeyId = iD
