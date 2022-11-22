@@ -2,13 +2,12 @@ class Column():
     def __init__(self, iD):
         self.ID = iD
         self.ListOfLetters = []
-        self.FinalString = None
         
-    def AddLetter(Letter):
-        ListOfLetters.append(Letter)
+    def AddLetter(self,Letter):
+        self.ListOfLetters.append(Letter)
         
-    def ReturnListOfLetters():
-        StringToReturn = None
-        for i in List:
+    def ReturnListOfLetters(self):
+        StringToReturn = ""
+        for i in self.ListOfLetters:
             StringToReturn = StringToReturn + i
         return StringToReturn

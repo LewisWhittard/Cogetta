@@ -21,6 +21,10 @@ while ProgramActive == True:
     if (Action == "0"):
         Table.GenarateKey()
         
+    if (Action == "1"):
+        Table.ImportWheelKey("0-1-2-3-4-5-6-7")
+        string  = Table.EncryptMessage("TheQuickBrownFoxJumpsOverTheLazyDog")
+        print(string)
     
     elif (Action == "3"):
         ProgramActive = False

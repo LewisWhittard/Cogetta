@@ -25,6 +25,7 @@ class Table():
         self.ListOfColumns.append(self.Column5)
         self.ListOfColumns.append(self.Column6)
         self.ListOfColumns.append(self.Column7)
+        self.ImportedKey = None
         
     def importKey(key):
         Key = key
@@ -41,6 +42,29 @@ class Table():
                 Key = Key + str(i) + "-"
             Counter = Counter + 1
         self.GenaratedKey = Key
-        print(Key)
+        print("Your transposition cipher Key is", Key)
+        
+    def ImportWheelKey(self,KeyImport):
+        self.ImportedKey = KeyImport.split("-")
+        self.ImportedKey = list((map(int, self.ImportedKey)))
+    
+    def EncryptMessage(self,message):
+        counter = 0
+        for i in message:
+            currentId = self.ImportedKey[counter]
+            for x in self.ListOfColumns:
+                if (currentId == x.ID):
+                    x.AddLetter(i)
+            if counter == 7:
+                counter = 0
+            else:
+                counter = counter + 1
+        messageToPrint = ""
+        for i in self.ListOfColumns:
+            messageToPrint = messageToPrint + i.ReturnListOfLetters()
+        return messageToPrint
+                
+                
+        
             
     
