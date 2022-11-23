@@ -22,9 +22,15 @@ while ProgramActive == True:
         Table.GenarateKey()
         
     if (Action == "1"):
-        Table.ImportWheelKey("0-1-2-3-4-5-6-7")
+        Table.ImportWheelKey("1-0-6-2-5-4-7-3")
         string  = Table.EncryptMessage("TheQuickBrownFoxJumpsOverTheLazyDog")
         print(string)
+    
+    if (Action == "2"):
+        Table.ImportWheelKey("1-0-6-2-5-4-7-3")
+        string  = Table.Decrypt("TheQuickBrownFoxJumpsOverTheLazyDog")
+        print(string)
+        
     
     elif (Action == "3"):
         ProgramActive = False

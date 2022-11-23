@@ -13,13 +13,16 @@ class Column():
         return StringToReturn
 
 class ColumnStructure():
-    def _init_(self, iD):
+    def __init__(self, iD):
         self.ID = iD
         self.KeyId = None
         self.MessageCount = None
         
-    def ImportMessageCount(self,Count)
+    def ImportMessageCount(self,Count):
         self.MessageCount = Count
     
-    def ImportKeyId(self, iD):
-        self.KeyId = iD
+    def ImportKeyId(self, keyId):
+        self.KeyId = keyId
+    
+    def PrintAll(self):
+        print(self.ID, self.KeyId, self.MessageCount)

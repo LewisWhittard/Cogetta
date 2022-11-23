@@ -63,6 +63,92 @@ class Table():
         for i in self.ListOfColumns:
             messageToPrint = messageToPrint + i.ReturnListOfLetters()
         return messageToPrint
+    
+    def CreateListOfColumnStructure(self):
+        listOfColumnStructure = []
+        ColumnStructure0 = TranspositionCipherColumn.ColumnStructure(0)
+        ColumnStructure1 = TranspositionCipherColumn.ColumnStructure(1)
+        ColumnStructure2 = TranspositionCipherColumn.ColumnStructure(2)
+        ColumnStructure3 = TranspositionCipherColumn.ColumnStructure(3)
+        ColumnStructure4 = TranspositionCipherColumn.ColumnStructure(4)
+        ColumnStructure5 = TranspositionCipherColumn.ColumnStructure(5)
+        ColumnStructure6 = TranspositionCipherColumn.ColumnStructure(6)
+        ColumnStructure7 = TranspositionCipherColumn.ColumnStructure(7)
+        listOfColumnStructure.append(ColumnStructure0)
+        listOfColumnStructure.append(ColumnStructure1)
+        listOfColumnStructure.append(ColumnStructure2)
+        listOfColumnStructure.append(ColumnStructure3)
+        listOfColumnStructure.append(ColumnStructure4)
+        listOfColumnStructure.append(ColumnStructure5)
+        listOfColumnStructure.append(ColumnStructure6)
+        listOfColumnStructure.append(ColumnStructure7)
+        return listOfColumnStructure
+    
+    def AssignKeyToColumnStructure(self, listOfValues):
+        counter= 0
+        for i in listOfValues:
+            i.ImportKeyId(self.ImportedKey[counter])
+            counter = counter + 1
+            
+    def GetCountValuesBasedOnId(self,ID):
+        value = None
+        for x in self.ListOfColumns:
+            if (x.ID == ID):
+                value = len(x.ListOfLetters)
+                
+        return value
+    
+    def AssignValueCount(self, listOfValues,message):
+        counter = 0
+        for i in message:
+            currentId = self.ImportedKey[counter]
+            for x in self.ListOfColumns:
+                if (currentId == x.ID):
+                    x.AddLetter(i)
+            if counter == 7:
+                counter = 0
+            else:
+                counter = counter + 1
+        
+        values = []
+        
+        for i in listOfValues:
+            values.append(i.KeyId)
+        
+        for i in values:
+            print(i)
+        
+        Counter2 = 0    
+        
+        for i in values:
+            listOfValues[Counter2].MessageCount = self.GetCountValuesBasedOnId(listOfValues[i].KeyId)
+            Counter2 = Counter2 + 1
+        
+        
+    
+            
+                
+            
+                
+                
+        
+        
+            
+            
+            
+    
+    def Decrypt(self,message):
+        listOfColumnStructure = self.CreateListOfColumnStructure()
+        self.AssignKeyToColumnStructure(listOfColumnStructure)
+        self.AssignValueCount(listOfColumnStructure, message)
+        
+        for i in listOfColumnStructure:
+            i.PrintAll()
+        
+        
+        
+            
+        
                 
                 
         
