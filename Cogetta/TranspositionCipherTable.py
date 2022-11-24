@@ -115,35 +115,32 @@ class Table():
         for i in listOfValues:
             values.append(i.KeyId)
         
-        for i in values:
-            print(i)
-        
         Counter2 = 0    
         
         for i in values:
             listOfValues[Counter2].MessageCount = self.GetCountValuesBasedOnId(listOfValues[i].KeyId)
             Counter2 = Counter2 + 1
+            
+    def ReconstructMessage(self,listOfValues,Message):
         
+        messageRange = []
+        Counter = 0
+        messageRange.append(0)
         
-    
-            
-                
-            
-                
-                
+        messageRange.append(messageRange[0] + listOfValues[0].MessageCount)
+        messageRange.append(messageRange[1] + listOfValues[1].MessageCount)
+        messageRange.append(messageRange[2] + listOfValues[2].MessageCount)
+        messageRange.append(messageRange[3] + listOfValues[3].MessageCount)
+        messageRange.append(messageRange[4] + listOfValues[4].MessageCount)
+        messageRange.append(messageRange[5] + listOfValues[5].MessageCount)
+        messageRange.append(messageRange[6] + listOfValues[6].MessageCount)
+        messageRange.append(messageRange[7] + listOfValues[7].MessageCount)
         
-        
-            
-            
-            
-    
     def Decrypt(self,message):
         listOfColumnStructure = self.CreateListOfColumnStructure()
         self.AssignKeyToColumnStructure(listOfColumnStructure)
         self.AssignValueCount(listOfColumnStructure, message)
-        
-        for i in listOfColumnStructure:
-            i.PrintAll()
+        self.ReconstructMessage(listOfColumnStructure,message)
         
         
         
