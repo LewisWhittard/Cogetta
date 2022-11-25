@@ -31,11 +31,16 @@ class ColumnNumberID():
     def __init__(self, iD,ListOfIds, keyId):
         self.ID = iD
         self.ListOfValues = []
+        self.ListOfStringValues = []
         for i in ListOfIds:
             self.ListOfValues.append(i)
         self.KeyId = keyId
         
-    def printAll(self):
+    def ImportMessage(self,message):
+        for i in self.ListOfValues:
+            char = message[i]
+            self.ListOfStringValues.append(char)
         
-            print(self.ID, self.KeyId, self.ListOfValues)
+    def printAll(self):
+        print(self.ID, self.KeyId, self.ListOfValues,self.ListOfStringValues)
         

@@ -166,7 +166,10 @@ class Table():
             newList.append(newDataColumn)
             counter = counter + 1
         
-        newList.sort(key=operator.attrgetter('KeyId'))
+        #newList.sort(key=operator.attrgetter('KeyId'))
+        
+        for i in newList:
+            i.ImportMessage(Message)
         
         for i in newList:
             i.printAll()
@@ -181,6 +184,7 @@ class Table():
         self.AssignKeyToColumnStructure(listOfColumnStructure)
         self.AssignValueCount(listOfColumnStructure, message)
         self.ReconstructMessage(listOfColumnStructure,message)
+        
         
         
         
