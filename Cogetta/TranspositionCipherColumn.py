@@ -26,3 +26,16 @@ class ColumnStructure():
     
     def PrintAll(self):
         print(self.ID, self.KeyId, self.MessageCount)
+
+class ColumnNumberID():
+    def __init__(self, iD,ListOfIds, keyId):
+        self.ID = iD
+        self.ListOfValues = []
+        for i in ListOfIds:
+            self.ListOfValues.append(i)
+        self.KeyId = keyId
+        
+    def printAll(self):
+        
+            print(self.ID, self.KeyId, self.ListOfValues)
+        

@@ -1,6 +1,8 @@
 import TranspositionCipherColumn
 import CharacterSet
 from random import *
+import operator
+
 
 
 class Table():
@@ -123,18 +125,56 @@ class Table():
             
     def ReconstructMessage(self,listOfValues,Message):
         
-        messageRange = []
+        messageRangeValues = []
         Counter = 0
-        messageRange.append(0)
+        messageRangeValues.append(0)
         
-        messageRange.append(messageRange[0] + listOfValues[0].MessageCount)
-        messageRange.append(messageRange[1] + listOfValues[1].MessageCount)
-        messageRange.append(messageRange[2] + listOfValues[2].MessageCount)
-        messageRange.append(messageRange[3] + listOfValues[3].MessageCount)
-        messageRange.append(messageRange[4] + listOfValues[4].MessageCount)
-        messageRange.append(messageRange[5] + listOfValues[5].MessageCount)
-        messageRange.append(messageRange[6] + listOfValues[6].MessageCount)
-        messageRange.append(messageRange[7] + listOfValues[7].MessageCount)
+        messageRangeValues.append(messageRangeValues[0] + listOfValues[0].MessageCount)
+        messageRangeValues.append(messageRangeValues[1] + listOfValues[1].MessageCount)
+        messageRangeValues.append(messageRangeValues[2] + listOfValues[2].MessageCount)
+        messageRangeValues.append(messageRangeValues[3] + listOfValues[3].MessageCount)
+        messageRangeValues.append(messageRangeValues[4] + listOfValues[4].MessageCount)
+        messageRangeValues.append(messageRangeValues[5] + listOfValues[5].MessageCount)
+        messageRangeValues.append(messageRangeValues[6] + listOfValues[6].MessageCount)
+        messageRangeValues.append(messageRangeValues[7] + listOfValues[7].MessageCount)
+        
+        messageRangeList = [] 
+        messageRange0 = range(messageRangeValues[0],messageRangeValues[1])
+        messageRange1 = range(messageRangeValues[1],messageRangeValues[2])
+        messageRange2 = range(messageRangeValues[2],messageRangeValues[3])
+        messageRange3 = range(messageRangeValues[3],messageRangeValues[4])
+        messageRange4 = range(messageRangeValues[4],messageRangeValues[5])
+        messageRange5 = range(messageRangeValues[5],messageRangeValues[6])
+        messageRange6 = range(messageRangeValues[6],messageRangeValues[7])
+        messageRange7 = range(messageRangeValues[7],len(Message))
+        
+        messageRangeList.append(messageRange0)
+        messageRangeList.append(messageRange1)
+        messageRangeList.append(messageRange2)
+        messageRangeList.append(messageRange3)
+        messageRangeList.append(messageRange4)
+        messageRangeList.append(messageRange5)
+        messageRangeList.append(messageRange6)
+        messageRangeList.append(messageRange7)
+        
+        counter = 0
+        
+        newList = []
+        
+        for i in listOfValues:
+            newDataColumn = TranspositionCipherColumn.ColumnNumberID(counter,messageRangeList[counter],i.KeyId)
+            newList.append(newDataColumn)
+            counter = counter + 1
+        
+        newList.sort(key=operator.attrgetter('KeyId'))
+        
+        for i in newList:
+            i.printAll()
+
+            
+        
+
+            
         
     def Decrypt(self,message):
         listOfColumnStructure = self.CreateListOfColumnStructure()
