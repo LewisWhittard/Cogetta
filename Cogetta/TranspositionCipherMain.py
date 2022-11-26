@@ -1,12 +1,12 @@
 import TranspositionCipherTable
 import Validation
 
-Table = TranspositionCipherTable.Table(0)
+TableList = []
 StringValidation = Validation.StringValidation()
 KeyValidation = Validation.KeyValidation()
 NumberValidation = Validation.NumberValidation()
 
-print("Cogetta Transposition Cipher • © Lewis Whittard 2022 • MIT License • Version: 1.0.0")
+print("Cogetta • Transposition Cipher • © Lewis Whittard 2022 • MIT License • Version: 1.1.0")
 
 ProgramActive = True
 
@@ -22,14 +22,20 @@ while ProgramActive == True:
         Table.GenarateKey()
         
     if (Action == "1"):
-        Table.ImportWheelKey("1-0-3-2-5-4-7-6")
-        string  = Table.EncryptMessage("TheQuickBrownFoxJumpsOverTheLazyDog")
+        TableList.clear()
+        TableList.append(TranspositionCipherTable.Table(0))
+        TableList[0].ImportWheelKey("1-0-3-2-5-4-7-6")
+        string  = TableList[0].EncryptMessage("TheQuickBrownFoxJumpsOverTheLazyDog")
         print(string)
+        TableList.clear()
     
     if (Action == "2"):
-        Table.ImportWheelKey("1-0-3-2-5-4-7-6")
-        string  = Table.Decrypt("hruToTBJrDQwpeeomhgiFOaunsLkxeycovz")
+        TableList.clear()
+        TableList.append(TranspositionCipherTable.Table(0))
+        TableList[0].ImportWheelKey("1-0-3-2-5-4-7-6")
+        string  = TableList[0].Decrypt("hruToTBJrDQwpeeomhgiFOaunsLkxeycovz")
         print(string)
+        TableList.clear()
         
     
     elif (Action == "3"):
