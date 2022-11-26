@@ -211,7 +211,17 @@ class Table():
                     counter3 = 0
                 counter3 = counter3 + 1
         
-        print(message0,message1,message2,message3,message4,message5,message6,message7)
+        FinalMessage = ""
+        FinalMessage = FinalMessage + message0
+        FinalMessage = FinalMessage + message1
+        FinalMessage = FinalMessage + message2
+        FinalMessage = FinalMessage + message3
+        FinalMessage = FinalMessage + message4
+        FinalMessage = FinalMessage + message5
+        FinalMessage = FinalMessage + message6
+        FinalMessage = FinalMessage + message7
+        
+        print(FinalMessage)
                 
                 
     def Decrypt(self,message):
