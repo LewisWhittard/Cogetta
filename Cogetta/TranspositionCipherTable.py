@@ -166,19 +166,54 @@ class Table():
             newList.append(newDataColumn)
             counter = counter + 1
         
-        #newList.sort(key=operator.attrgetter('KeyId'))
-        
         for i in newList:
             i.ImportMessage(Message)
         
+        newList.sort(key=operator.attrgetter('KeyId'))
+        
+        MessagePartList = []
+        
         for i in newList:
-            i.printAll()
-
-            
+            MessagePart = i.ReturnMessagePart()
+            MessagePartList.append(MessagePart)
         
-
-            
+        messageList = []
         
+        message0 = ""
+        message1 = ""
+        message2 = ""
+        message3 = ""
+        message4 = ""
+        message5 = ""
+        message6 = ""
+        message7 = ""
+        
+        for i in MessagePartList:
+            print(i)
+            counter3 = 0
+            for x in i:
+                if (counter3 == 0):
+                    message0 = message0 + x
+                elif (counter3 == 1):
+                    message1 = message1 + x
+                elif (counter3 == 2):
+                    message2 = message2 + x
+                elif (counter3 == 3):
+                    message3 = message3 + x
+                elif (counter3 == 4):
+                    message4 = message4 + x
+                elif (counter3 == 5):
+                    message5 = message5 + x
+                elif (counter3 == 6):
+                    message6 = message6 + x
+                elif (counter3 == 7):
+                    message7 = message7 + x
+                    counter3 = 0
+                counter3 = counter3 + 1
+        
+        print(message0,message1,message2,message3,message4,message5,message6,message7)
+                
+                
     def Decrypt(self,message):
         listOfColumnStructure = self.CreateListOfColumnStructure()
         self.AssignKeyToColumnStructure(listOfColumnStructure)

@@ -40,6 +40,12 @@ class ColumnNumberID():
         for i in self.ListOfValues:
             char = message[i]
             self.ListOfStringValues.append(char)
+            
+    def ReturnMessagePart(self):
+        ValueToReturn = []
+        for i in self.ListOfStringValues:
+            ValueToReturn.append(i)
+        return ValueToReturn
         
     def printAll(self):
         print(self.ID, self.KeyId, self.ListOfValues,self.ListOfStringValues)
