@@ -296,6 +296,95 @@ class NumberValidation():
                 print("Number Error")
         
         return Number
+    
+class TranspositionKeyValidation():
+    
+    def __init__(self):
+        self.KeySetClass = CharacterSet.ColumnSet()
+        self.List = self.KeySetClass.inputValues
+        self.MaxValue = self.KeySetClass.transpositionCiphermaxId
+        self.MinimumValue = self.KeySetClass.transpositionCipherminId
+        self.Count = len(self.List)
+        
+    def ImportKey(self, Key):
+        ImportedKey = Key.split("-")
+        return ImportedKey
+        
+    
+    def CheckKeyLength(self, Key):
+        valid = True
+        valueCount = len(Key)
+        
+        if valueCount == len(self.KeySetClass.transpositionCipherColumnId):
+            valid = True
+        else:
+            valid = False
+            print("Invalid key", valueCount, len(self.KeySetClass.transpositionCipherColumnId))
+            
+        return valid
+    
+    def CheckValuesAreUnique(self, Key):
+        valid = True
+        valid = len(self.KeySetClass.transpositionCipherColumnId) == len(set(Key))
+        if valid == False:
+            print("Invalid wheel key values are not unique")
+        return valid
+    
+    def CheckValueIsNotSmallerThenMinimumValue(self, Key):
+        Value = True
+        ConvertedKey = list(map(int, Key))
+        for i in ConvertedKey:
+            if i < self.MinimumValue:
+                Value = False
+                print("Value is too small", i)
+        return Value
+    
+    def CheckValueIsNotLargerThenMaxValue(self, Key):
+        Value = True
+        ConvertedKey = list(map(int, Key))
+        for i in ConvertedKey:
+            if i > self.MaxValue:
+                Value = False
+                print("Value is too large", i)
+        return Value
+    
+    def ReturnKeyTryCatch(self):
+        Key = None
+        NotMaxString = False
+        while NotMaxString == False:
+            try:
+                Key = input("What is your key:")
+                NotMaxString = True
+            except:
+                print("Key Error")
+        
+        return Key
+        
+    def ValidationManager(self):
+        LengthCheck = False
+        UniqueCheck = False
+        LargestValueCheck = False
+        SmallestValueCheck = False
+        
+        while LengthCheck == False or UniqueCheck == False or LargestValueCheck == False or SmallestValueCheck == False:
+            Key = self.ReturnKeyTryCatch()
+            ImportedKey = self.ImportKey(Key)
+            LengthCheck = self.CheckKeyLength(ImportedKey)
+            if LengthCheck == True:
+                UniqueCheck = self.CheckValuesAreUnique(ImportedKey)
+                if UniqueCheck == True:
+                    LargestValueCheck = self.CheckValueIsNotLargerThenMaxValue(ImportedKey)
+                    if LargestValueCheck == True:
+                        SmallestValueCheck = self.CheckValueIsNotSmallerThenMinimumValue(ImportedKey)
+        
+        return Key
+            
+        
+        
+        
+        
+    
+    
             
             
         
