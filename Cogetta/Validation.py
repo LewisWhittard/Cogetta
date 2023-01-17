@@ -300,7 +300,7 @@ class NumberValidation():
 class TranspositionKeyValidation():
     
     def __init__(self):
-        self.KeySetClass = CharacterSet.ColumnSet()
+        self.KeySetClass = CharacterSet.TranspositionCipherKeySet()
         self.List = self.KeySetClass.inputValues
         self.MaxValue = self.KeySetClass.transpositionCiphermaxId
         self.MinimumValue = self.KeySetClass.transpositionCipherminId
@@ -309,7 +309,30 @@ class TranspositionKeyValidation():
     def ImportKey(self, Key):
         ImportedKey = Key.split("-")
         return ImportedKey
+    
+    def CheckString(self,Message):
+        Valid = True
+        MessageLength = len(Message)
         
+        if MessageLength <= 0:
+            Valid = False
+            print("No key")
+            
+        for x in Message:
+            if Valid == True:
+                Valid = self.CheckChar(x)
+        
+        return Valid
+    
+    def CheckChar(self,Char):
+        Valid = True
+        if Char in self.List:
+            Valid = True
+        else:
+            Valid = False
+            print("Unsupported charecter detected:",Char)
+            
+        return Valid
     
     def CheckKeyLength(self, Key):
         valid = True
@@ -365,17 +388,21 @@ class TranspositionKeyValidation():
         UniqueCheck = False
         LargestValueCheck = False
         SmallestValueCheck = False
+        KeyValidChar = False
+        
         
         while LengthCheck == False or UniqueCheck == False or LargestValueCheck == False or SmallestValueCheck == False:
             Key = self.ReturnKeyTryCatch()
-            ImportedKey = self.ImportKey(Key)
-            LengthCheck = self.CheckKeyLength(ImportedKey)
-            if LengthCheck == True:
-                UniqueCheck = self.CheckValuesAreUnique(ImportedKey)
-                if UniqueCheck == True:
-                    LargestValueCheck = self.CheckValueIsNotLargerThenMaxValue(ImportedKey)
-                    if LargestValueCheck == True:
-                        SmallestValueCheck = self.CheckValueIsNotSmallerThenMinimumValue(ImportedKey)
+            KeyValidChar = self.CheckString(Key)
+            if KeyValidChar == True:
+                ImportedKey = self.ImportKey(Key)
+                LengthCheck = self.CheckKeyLength(ImportedKey)
+                if LengthCheck == True:
+                    UniqueCheck = self.CheckValuesAreUnique(ImportedKey)
+                    if UniqueCheck == True:
+                        LargestValueCheck = self.CheckValueIsNotLargerThenMaxValue(ImportedKey)
+                        if LargestValueCheck == True:
+                            SmallestValueCheck = self.CheckValueIsNotSmallerThenMinimumValue(ImportedKey)
         
         return Key
             
