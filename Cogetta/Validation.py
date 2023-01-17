@@ -391,7 +391,7 @@ class TranspositionKeyValidation():
         KeyValidChar = False
         
         
-        while LengthCheck == False or UniqueCheck == False or LargestValueCheck == False or SmallestValueCheck == False:
+        while LengthCheck == False or UniqueCheck == False or LargestValueCheck == False or SmallestValueCheck == False or KeyValidChar == False:
             Key = self.ReturnKeyTryCatch()
             KeyValidChar = self.CheckString(Key)
             if KeyValidChar == True:
