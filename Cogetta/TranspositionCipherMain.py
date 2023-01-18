@@ -20,7 +20,10 @@ while ProgramActive == True:
     Action = input("Please enter a Number:")
 
     if (Action == "0"):
-        Table.GenarateKey()
+        TableList.clear()
+        TableList.append(TranspositionCipherTable.Table(0))
+        TableList[0].GenarateKey()
+        TableList.clear()
         
     elif (Action == "1"):
         TableList.clear()

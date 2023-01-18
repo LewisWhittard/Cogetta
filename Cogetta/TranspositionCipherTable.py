@@ -7,7 +7,7 @@ import operator
 
 class Table():
     def __init__(self,iD):
-        self.CharacterSetClass = self.CharacterSetClass = CharacterSet.EnglishStandard()
+        self.CharacterSetClass = CharacterSet.TranspositionCipherKeySet
         self.ID = iD
         self.ListOfColumns = []
         self.Key = None
@@ -35,7 +35,7 @@ class Table():
     def GenarateKey(self):
         Key = ""
         Counter = 0
-        GenaratedKey = self.CharacterSetClass.transporationCipherColumnId.copy()
+        GenaratedKey = self.CharacterSetClass.transpositionCipherColumnId.copy()
         shuffle(GenaratedKey)
         for i in GenaratedKey:
             if Counter == 7:
