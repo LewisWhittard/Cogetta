@@ -29,17 +29,20 @@ while ProgramActive == True:
         TableList.clear()
         TableList.append(TranspositionCipherTable.Table(0))
         Key = TranspositionCipherKeyValidation.ValidationManager()
-        TableList[0].ImportWheelKey(Key)
-        string  = TableList[0].EncryptMessage("TheQuickBrownFoxJumpsOverTheLazyDog")
-        print(string)
+        TableList[0].ImportKey(Key)
+        Message = StringValidation.ValidationManager()
+        FinalString  = TableList[0].EncryptMessage(Message)
+        print(FinalString)
         TableList.clear()
     
     elif (Action == "2"):
         TableList.clear()
         TableList.append(TranspositionCipherTable.Table(0))
-        TableList[0].ImportWheelKey("1-0-3-2-5-4-7-6")
-        string  = TableList[0].Decrypt("hruToTBJrDQwpeeomhgiFOaunsLkxeycovz")
-        print(string)
+        Key = TranspositionCipherKeyValidation.ValidationManager()
+        TableList[0].ImportKey(Key)
+        Message = StringValidation.ValidationManager()
+        FinalString  = TableList[0].Decrypt(Message)
+        print(FinalString)
         TableList.clear()
         
     

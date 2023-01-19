@@ -46,7 +46,7 @@ class Table():
         self.GenaratedKey = Key
         print("Your transposition cipher Key is", Key)
         
-    def ImportWheelKey(self,KeyImport):
+    def ImportKey(self,KeyImport):
         self.ImportedKey = KeyImport.split("-")
         self.ImportedKey = list((map(int, self.ImportedKey)))
     
